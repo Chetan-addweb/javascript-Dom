@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>js Demo Cookies</title>
+	
+
+</head>
+<body onload = "loadform();">
+
+</body>
+<script type="text/javascript">
+		function loadform()
+		{
+			var name = document.createElement("input");
+			    
+			    name.setAttribute("type","text");
+			    name.setAttribute("placeholder","Enter your name");
+			  name.setAttribute("blur",checkname);
+			   function checkname(){
+			   	  var n = /^[a-zA-z]+$/;
+			   	  if (name.value=="") {
+			   	  	alert("please Enter Your Name");
+                }
+			   	  else if(! name.value.match(n))
+                    {
+			   	     alert("Enter valid name");
+			   	     name.value("");
+                    }
+			   }
+
+			var email = document.createElement("input");
+			   email.setAttribute("type","email");
+			   email.setAttribute("placeholder","Enter your email");
+			   email.setAttribute("blur",checkname);
+			    function checkname(){
+			    	var n = /^\W+([\.-]?\W+)*@\W+([\.-]?\W+)*(\.\W{2,3})+$/;
+			    	if(email.value==""){
+			    		alert("please Enter your Email");
+			    	}
+			       else if(! email.value.match(n)){
+			       	alert("Enter valid Email");
+			       	email.value("");
+			       }	
+			    } 
+
+			var number = document.createElement("input");
+			    number.setAttribute("type","number");
+			    number.setAttribute("placeholder","Enter your number");
+
+			    
+			var submit = document.createElement("input");
+			    submit.setAttribute("type","submit");
+			    submit.addEventListener('click',sub);
+			   
+
+                 function sub()
+			{
+				
+				document.cookie = name.value;
+				document.write(document.cookie);
+				document.cookie = email.value;
+				document.write(document.cookie);
+				document.cookie = number.value;
+				document.write(document.cookie);
+			}
+
+
+			document.body.appendChild(name);
+			document.body.appendChild(email);
+			document.body.appendChild(number);
+			document.body.appendChild(submit);
+		}
+	</script>
+
+</html>
